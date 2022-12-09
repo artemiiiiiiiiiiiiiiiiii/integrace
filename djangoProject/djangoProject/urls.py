@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from api import views
+from api import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('func_app/', include('func_app.urls'))
+    path('func_app/', include('func_app.urls')),
+    path('api/', include('api.urls')),
+    path('<str:my_word>', views.ReplaceView.as_view(), name="replace")
 ]
