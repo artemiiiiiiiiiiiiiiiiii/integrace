@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from api import views
 from api import urls
+from func_app.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name="functional"),
     path('func_app/', include('func_app.urls')),
     path('api/', include('api.urls')),
     #path('<str:my_word>', views.ReplaceView.as_view(), name="replace")
+
 ]
