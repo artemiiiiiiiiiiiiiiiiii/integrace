@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from drf_spectacular.utils import extend_schema
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Replacer
@@ -8,6 +9,8 @@ import replace
 
 
 class ReplaceView(APIView):
+
+    @extend_schema(request=ReplaceSerializer, responses=ReplaceSerializer)
 
     def get(self, request, my_word):
         replacer = Replacer(my_word, replace.replace(my_word))

@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('func_app/', include('func_app.urls')),
     path('api/', include('api.urls')),
-    path('<str:my_word>', views.ReplaceView.as_view(), name="replace")
+    #path('<str:my_word>', views.ReplaceView.as_view(), name="replace")
 ]
