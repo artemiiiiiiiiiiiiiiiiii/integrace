@@ -21,4 +21,4 @@ class ReplacerTests(TestCase):
     def test_index_page_changes_brackets(self):
             response = self.client.post(path='', data={'SendMeText': '"йокарный бабай сказала йошкарала"'})
             html_answer = ''.join([r.decode() for r in response])
-            self.assertEqual(html_answer,'Текст - "йокарный бабай сказала йошкарала"  |   Извлеченные слова - [иокарный, иошкарала]')
+            self.assertEqual(html_answer, "Текст - \"йокарный бабай сказала йошкарала\"  |   Извлеченные слова - ['иокарный', 'иошкарала']")

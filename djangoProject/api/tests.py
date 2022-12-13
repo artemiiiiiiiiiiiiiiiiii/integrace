@@ -7,5 +7,5 @@ class ReplacerTests(APITestCase):
         response = self.client.get(url)
         self.assertEqual(response.data, {
             "text": "my_word",
-            "result": "my_word"
+            "result": "[]"
         })

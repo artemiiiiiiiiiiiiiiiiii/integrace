@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from api import views
 from api import urls
+from . import settings
 from func_app.views import index
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +28,4 @@ urlpatterns = [
     path('api/', include('api.urls')),
     #path('<str:my_word>', views.ReplaceView.as_view(), name="replace")
 
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
